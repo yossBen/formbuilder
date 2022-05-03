@@ -13,7 +13,10 @@ orderable
 [jnt:formButton] > jnt:content,mix:title abstract
  orderable
 
-[jnt:responseToForm] > jnt:content,nt:unstructured
+[jnt:responseToForm] > jnt:content
+orderable
+  - * (string)
+  + * (nt:base) = nt:unstructured sns VERSION
 
 [jnt:inputText] > jnt:formElement
  - size (long) = 20 autocreated
