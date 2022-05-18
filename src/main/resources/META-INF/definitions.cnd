@@ -110,26 +110,3 @@ orderable
 
 [jnt:htmlInput] > jnt:formElement
  - html (string,richtext)
-
-
-
-// NewsLetter
-
-[jnt:subscription] > nt:base, mix:created, mix:lastModified, jmix:observable
- - j:subscriber (string) mandatory nofulltext
- - j:provider (string) nofulltext
- - j:suspended (boolean) = false autocreated nofulltext
- - j:confirmed (boolean) = true autocreated nofulltext
- - j:confirmationKey (string) protected hidden nofulltext
- - * (string)
-
-[jnt:subscriptions] > jnt:content, jmix:list
- + * (jnt:subscription) = jnt:subscription
- + * (jnt:subscriptionFolder) = jnt:subscriptionFolder
-
-[jnt:subscriptionFolder] > nt:base, mix:created, mix:lastModified
- + * (jnt:subscription) = jnt:subscription
-
-[jmix:subscribable] > jmix:lockable mixin
- + j:subscriptions (jnt:subscriptions) = jnt:subscriptions mandatory autocreated
- - j:allowUnregisteredUsers (boolean) = true autocreated nofulltext
